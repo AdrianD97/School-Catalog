@@ -1,3 +1,4 @@
+'use strict';
 
 const config = require('../../config/config');
 const Employee = require('./Employee');

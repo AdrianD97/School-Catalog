@@ -1,3 +1,5 @@
+'use strict';
+
 const Database = require('./database/Database');
 const config = require('./config/config');
 const { Person, Employee, Student, Boss, Teacher, DepartamentHead, Administrator, ProDean, Dean } = require('./versions/class_keyword');

@@ -1,3 +1,5 @@
+'use strict';
+
 const Person = require('./class_keyword/Person');
 const Employee = require('./class_keyword/Employee');
 const Student = require('./class_keyword/Student');
