@@ -1,43 +1,21 @@
-class Person {
-    constructor(id = 0, name = 'Unknown', birthDate = Date.now()) {
-        this._id = 0;
-        this._name = name;
-        this._birthDate = birthDate;
-    }
-
-    get getId() {
-        return this._id;
-    }
-
-    set setId(name) {
-        this._id = id;
-    }
-
-    get getName() {
-        return this._name;
-    }
-
-    set setName(name) {
-        this._name = name;
-    }
-
-    get getBirthDate() {
-        return this._birthDate;
-    }
-
-    set setBirthDate(birthDate) {
-        this._birthDate = birthDate;
-    }
-
-    get getAge() {
-        return Date.now() - this._birthDate; 
-    }
-
-    create(type = 1) {
-        return new Person();
-    }
-}
+const Person = require('./class_keyword/Person');
+const Employee = require('./class_keyword/Employee');
+const Student = require('./class_keyword/Student');
+const Boss = require('./class_keyword/Boss');
+const Teacher = require('./class_keyword/Teacher');
+const DepartamentHead = require('./class_keyword/DepartamentHead');
+const Administrator = require('./class_keyword/Administrator');
+const ProDean = require('./class_keyword/ProDean');
+const Dean = require('./class_keyword/Dean');
 
 module.exports = {
-    Person
+    Person,
+    Employee,
+    Student,
+    Boss,
+    Teacher,
+    DepartamentHead,
+    Administrator,
+    ProDean,
+    Dean
 }

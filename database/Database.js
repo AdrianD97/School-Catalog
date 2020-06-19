@@ -1,8 +1,8 @@
 const mysql = require('mysql');
 
 class Database {
-    constructor(concConfig) {
-        this.connection = mysql.createConnection(config);
+    constructor(conConfig) {
+        this.connection = mysql.createConnection(conConfig);
     }
 
     query(sql_query, arg) {

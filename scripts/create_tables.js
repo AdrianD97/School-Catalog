@@ -39,7 +39,7 @@ try {
     const query1 = 'CREATE TABLE ' + tables[0]
                 + '(id INT AUTO_INCREMENT PRIMARY KEY, '
                 + 'name VARCHAR(50) NOT NULL, '
-                + 'birthday DATE, '
+                + 'birthdate DATE, '
                 + 'fired BOOLEAN DEFAULT false, '
                 + 'promoted BOOLEAN DEFAULT false, '
                 + 'diff INT NOT NULL, '
