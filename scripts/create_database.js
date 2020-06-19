@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 
-const config = require('../config/config.js');
+const config = require('../config/config');
 
 function create_database(conConfig, dbname) {
     const con = mysql.createConnection(conConfig);
