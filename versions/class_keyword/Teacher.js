@@ -13,20 +13,18 @@ class Teacher extends Employee {
             const query = 'INSERT INTO ' + config['tables'][1] + '(grade, discipline, grade_date, student_id) '
                         + 'VALUES(' + grade + ', \'' + discipline + '\', \'2020-07-05\', ' + student.getId + ')';
 
-            
-            const grades = student.getGrades;
-
-            grades.push({
-                grade: grade,
-                discipline: discipline
-            });
-
-            student.setGrades = grades;
-
             db.query(query, (err, result) => {
                 if (err) {
                     reject(err);
                 } else {
+                    const grades = student.getGrades;
+
+                    grades.push({
+                        grade: grade,
+                        discipline: discipline
+                    });
+                    student.setGrades = grades;
+                    
                     resolve(result);
                 }
             });

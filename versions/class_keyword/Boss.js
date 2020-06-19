@@ -9,13 +9,13 @@ class Boss extends Person {
     }
 
     fire(emp) {
-        emp.setIsFired = true;
         return new Promise((resolve, reject) => {
             const query = 'UPDATE ' + config['tables'][0] + ' SET fired=true WHERE id = ' + emp.getId + ' AND diff != 1';
             db.query(query, (err, result) => {
                 if (err) {
                     reject(err);
                 } else {
+                    emp.setIsFired = true;
                     resolve(result.affectedRows + " record(s) updated");
                 }
             });

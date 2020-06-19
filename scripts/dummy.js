@@ -56,7 +56,9 @@ try {
         [ 13, 'Dean1', '1998-10-09', null, null, 7 ],
         [ 14, 'Dean2', '1998-01-19', null, null, 7 ],
         [ 15, 'Student1', '1978-10-09', null, null, 8 ],
-        [ 16, 'Student2', '1948-01-29', null, null, 8 ]
+        [ 16, 'Student2', '1948-01-29', null, null, 8 ],
+        [ 17, 'Boss1', '1998-12-09', null, null, 9 ],
+        [ 18, 'Boss2', '1968-07-19', null, null, 9 ]
     ];
 
     const query2 = 'INSERT INTO ' + tables[1] + ' VALUES ?';
