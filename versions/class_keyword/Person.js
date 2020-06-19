@@ -4,7 +4,7 @@ const config = require('../../config/config');
 
 class Person {
     constructor(id = 0, name = 'Unknown', birthDate = Date.now()) {
-        this._id = 0;
+        this._id = id;
         this._name = name;
         this._birthDate = birthDate;
     }
