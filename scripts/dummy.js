@@ -1,8 +1,8 @@
 const mysql = require('mysql');
 
-const config = require('../config/config.js');
+const config = require('../config/config');
 
-function insert(conConfig, table, query, values) {
+function insert(conConfig, tables, queries, values) {
     const con = mysql.createConnection(conConfig);
 
     con.connect((err) => {
@@ -10,14 +10,22 @@ function insert(conConfig, table, query, values) {
             throw err;
         }
 
-        con.query(query, [values], (err, result) => {
+        con.query(queries[0], [values[0]], (err, result) => {
             if (err) {
                 throw err;
             }
 
-            console.log('Insert data into ' + table + ' table successfully.');
+            console.log('Insert data into ' + tables[0] + ' table successfully.');
 
-            con.end();
+            con.query(queries[1], [values[1]], (err, result) => {
+                if (err) {
+                    throw err;
+                }
+    
+                console.log('Insert data into ' + tables[1] + ' table successfully.');
+
+                con.end();
+            });
         });
     });
 }
@@ -26,10 +34,10 @@ try {
     const conConfig = config['database'];
     conConfig['database'] = config['database_name'];
 
-    let table = config['tables'][0];
+    const tables = config['tables'];
 
-    let query = 'INSERT INTO ' + table + ' VALUES ?';
-    let values = [
+    const query1 = 'INSERT INTO ' + tables[0] + ' VALUES ?';
+    const values1 = [
         [ 1, 'Person1', '1998-10-09', null, null, 1 ],
         [ 2, 'Person2', '1998-01-19', null, null, 1 ],
         [ 3, 'Employee1', '1978-10-09', null, null, 2 ],
@@ -49,11 +57,8 @@ try {
         [ 16, 'Student2', '1948-01-29', null, null, 8 ]
     ];
 
-    insert(conConfig, table, query, values);
-
-    table = config['tables'][1];
-    query = 'INSERT INTO ' + table + ' VALUES ?';
-    values = [
+    const query2 = 'INSERT INTO ' + tables[1] + ' VALUES ?';
+    const values2 = [
         [ 1, 10, 'SD', '2020-07-10', 15 ],
         [ 2, 7, 'IC', '2020-07-10', 15 ],
         [ 3, 9, 'ASC', '2020-07-08', 15 ],
@@ -66,7 +71,7 @@ try {
         [ 10, 6, 'CN1', '2020-07-11', 16 ]
     ];
 
-    insert(conConfig, table, query, values);
+    insert(conConfig, tables, [ query1, query2 ], [ values1, values2 ]);
 } catch (e) {
     console.log(e);
 }
