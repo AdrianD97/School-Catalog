@@ -71,7 +71,7 @@ class Student extends Person {
                     const grades = result.map((row) => {
                         return {
                             grade: row['grade'],
-                            'discipline': row['discipline']
+                            discipline: row['discipline']
                         };
                     });
                     const row = result[0];
