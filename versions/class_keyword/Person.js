@@ -34,7 +34,7 @@ class Person {
     }
 
     get getAge() {
-        return Date.now() - this._birthDate; 
+        return Date.now() - this.getBirthDate; 
     }
 
     static create(id) {
