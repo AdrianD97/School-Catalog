@@ -7,14 +7,8 @@ class Database {
         this.connection = mysql.createConnection(conConfig);
     }
 
-    query(sql_query, arg) {
-        this.connection.query(sql_query, arg, (err, result) => {
-            if (err) {
-                throw err;
-            }
-
-            return result;
-        });
+    query(sql_query, cb) {
+        this.connection.query(sql_query, cb);
     }
 
     close() {
